@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import Logo from "../../../assets/img/png/Logo.png";
+import Logo from "../../../assets/img/png/logo.png";
 import "./MenuTop.scss";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 

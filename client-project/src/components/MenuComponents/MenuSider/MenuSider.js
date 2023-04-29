@@ -37,7 +37,7 @@ export const MenuSider = (props) => {
       label: "Servicios",
       subMenu: [
         { key: "services/list",  icon: <TeamOutlined />, label: "Listar trabajos" },
-        { key: "services/new",  icon: <TeamOutlined />, label: "Crear trabajo" },
+        { key: "services/new_job",  icon: <TeamOutlined />, label: "Crear trabajo" },
       ],
     },
     {

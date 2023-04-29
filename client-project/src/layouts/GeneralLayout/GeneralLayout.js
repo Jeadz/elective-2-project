@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import { MenuSider } from "../../components/MenuComponents/MenuSider/MenuSider";
 import { MenuTop } from "../../components/MenuComponents/MenuTop/MenuTop";
 import { FooterPage } from "../../components/FooterPage";
+import { table_services } from "../../pages/General/List_services";
 import "./GeneralLayout.scss";
 import { Logout } from "../../components/MenuComponents/Logout";
 
