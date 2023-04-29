@@ -26,6 +26,18 @@ export const FooterPage = () => {
           </Col>
           <Col xs={24} sm={12} md={8}>
             <h4>Suscríbete a nuestro boletín</h4>
+            <form>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Ingresa tu correo electronico"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Suscribirme
+              </button>
+            </form>
           </Col>
         </Row>
       </div>
