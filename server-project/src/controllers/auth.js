@@ -18,7 +18,7 @@ const register = async (req,res) => {
     lastname,
     email: email.toLowerCase(),
     role: "user",
-    active: false,
+    active: true,
     password: hashPassword,
   });
 
@@ -30,7 +30,7 @@ const register = async (req,res) => {
   }
 };
 
-/* Función que perite inciar sesión */
+/* Función que permite inciar sesión */
 
 const login = async (req, res) => {
   const {email,password} = req.body;

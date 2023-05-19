@@ -1,9 +1,26 @@
 /* rafce */
-import React from "react";
+import "./App.scss"
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllRoutesProject from "./config/routes";
+import Axios from 'axios';
 
 const App = () => {
+  
+    /* Conexion al servidor */
+    const [data, setData] = useState();
+    const getData = async () => {
+      try {
+        const response = await Axios.get("http://localhost:3200/api/v1/aut");
+        setData(response.data);
+      } catch (error) {
+        console.error("Error al obtener datos:", error);
+      }
+    };
+    useEffect(()=>{
+      getData()
+    },[]);
+    
   return (
     <BrowserRouter>
       <Routes>
