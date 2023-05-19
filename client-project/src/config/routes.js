@@ -1,7 +1,6 @@
 import { GeneralLayout } from "../layouts/GeneralLayout/GeneralLayout";
 import { AdminHome } from "../pages/Admin/AdminHome";
 import { SignIn } from "../pages/Admin/SignIn";
-
 import { Contact } from "../pages/General/Contact";
 import { Home } from "../pages/General/Home";
 import {List_services } from "../pages/General/List_services";

@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET_KEY } = require("../../constants");
+const user = require("../models/user");
 
 const createAccessToken = (user) => {
   const expToken = new Date();
