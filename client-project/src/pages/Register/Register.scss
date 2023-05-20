@@ -1,27 +1,32 @@
-@import "../../scss/index.scss";
-
 .register-form {
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    .register-form-button {
-      width: 50%;
-    }
-  
-    .ant-form-item {
-      width: 100%;
-      margin-bottom: 15px;
-  
-      .ant-input-affix-wrapper {
-        width: 100%;
-      }
-    }
-  
-    .ant-select {
-      width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .register-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 1rem; 
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .register-form-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ant-form-item {
+    width: 300px;
+    margin-bottom: 1rem;
+
+    .ant-input-prefix {
+      color: #1890ff;
     }
   }
+}
+
+
   

@@ -30,18 +30,21 @@ export const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} name="normal_login" className="login-form">
-          <Form.Item name="email">
-          <Input prefix={<UserOutlined/>} value={data.email} placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
-          </Form.Item>
-          <Form.Item name="password">
-          <Input prefix={<LockOutlined/>} type="password" placeholder="Password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Log in
-            </Button>
-          </Form.Item>
-        </form>
+        <div className="login-container">
+            <h1 className="login-title">Login</h1>
+            <form onSubmit={handleSubmit} name="normal_login" className="login-form">
+            <Form.Item name="email">
+            <Input prefix={<UserOutlined/>} value={data.email} placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
+            </Form.Item>
+            <Form.Item name="password">
+            <Input prefix={<LockOutlined/>} type="password" placeholder="Password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
+            </Form.Item>
+            <Form.Item>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                Log in
+                </Button>
+            </Form.Item>
+            </form>
+        </div>
     );
 };

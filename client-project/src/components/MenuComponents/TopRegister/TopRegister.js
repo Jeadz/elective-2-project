@@ -14,10 +14,10 @@ export const TopRegister = () => {
       </div>
       <div className="top-register__right">
         <Link to="/Register">
-          <Button className="registrarse">Registrarse</Button>
+          <Button className="registrarse">Sing Up</Button>
         </Link>
         <Link to="/Login">
-          <Button className="ingresar">Ingresar</Button>
+          <Button className="ingresar">Log In</Button>
         </Link>
       </div>
     </div>

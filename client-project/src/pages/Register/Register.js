@@ -37,25 +37,28 @@ export const Register = () => {
   };
 
   return (
-    <Form onFinish={handleSubmit} name="normal_login" className="register-form">
-      <Form.Item name="firstname">
-        <Input prefix={<UserOutlined />} placeholder="Firstname" onChange={(e) => setData({ ...data, firstname: e.target.value })} />
-      </Form.Item>
-      <Form.Item name="lastname">
-        <Input prefix={<UserOutlined />} placeholder="Lastname" onChange={(e) => setData({ ...data, lastname: e.target.value })} />
-      </Form.Item>
-      <Form.Item name="email">
-        <Input prefix={<UserOutlined />} placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
-      </Form.Item>
-      <Form.Item name="password">
-        <Input.Password prefix={<LockOutlined />} placeholder="Password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
-      </Form.Item>
-      
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="register-form-button">
-          Register
-        </Button>
-      </Form.Item>
-    </Form>
+    <div className="register-form">
+      <h1 className="register-title">SignUp</h1>
+      <Form onFinish={handleSubmit} name="normal_login" className="register-form">
+        <Form.Item name="firstname">
+          <Input prefix={<UserOutlined />} placeholder="Firstname" onChange={(e) => setData({ ...data, firstname: e.target.value })} />
+        </Form.Item>
+        <Form.Item name="lastname">
+          <Input prefix={<UserOutlined />} placeholder="Lastname" onChange={(e) => setData({ ...data, lastname: e.target.value })} />
+        </Form.Item>
+        <Form.Item name="email">
+          <Input prefix={<UserOutlined />} placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
+        </Form.Item>
+        <Form.Item name="password">
+          <Input.Password prefix={<LockOutlined />} placeholder="Password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
+        </Form.Item>
+        
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="register-form-button">
+            Register
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };

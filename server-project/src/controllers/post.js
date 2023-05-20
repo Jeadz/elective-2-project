@@ -1,5 +1,5 @@
-const Category = require("../models/category");
 const Post = require("../models/post");
+const Category = require("../models/category");
 const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
@@ -13,10 +13,9 @@ const createPost = async (req, res) => {
     const existingCategory = await Category.findOne({ _id: category });
     if (!existingCategory) {
       return res.status(404).send({
-        message: "La categoría especificada no existe",
+        message: "La categoría especificada no existe.",
       });
     }
-
     const post = new Post({
       title,
       miniature,
@@ -58,7 +57,7 @@ const getPosts = async (req, res) => {
     const posts = await Post.paginate({}, options);
     if (!posts || posts.totalPages === 0) {
       return res.status(404).send({
-        message: "No se ha encontrado ningún post",
+        message: "No se ha encontrado ningún post.",
       });
     }
     res.status(200).send({
@@ -73,6 +72,7 @@ const getPosts = async (req, res) => {
 };
 
 const getPost = async (req, res) => {
+  // Lógica para obtener un post específico
   try {
     const { id } = req.params;
     if (!id) {
@@ -83,7 +83,7 @@ const getPost = async (req, res) => {
     const post = await Post.findById(id);
     if (!post) {
       return res.status(404).send({
-        message: "No se ha encontrado ningún post",
+        message: "No se ha encontrado ningún post.",
       });
     }
 
@@ -93,7 +93,7 @@ const getPost = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send({
-      message: "Error en el servidor al obtener el post",
+      message: "Error en el servidor al obtener el post.",
     });
   }
 };
@@ -104,18 +104,21 @@ const getPostsByCategory = async (req, res) => {
 
     if (!mongoose.Types.ObjectId.isValid(category)) {
       return res.status(400).send({
-        message: "El ID de categoría no es válido",
+        message: "El ID de categoría no es válido.",
       });
     }
+
     const posts = await Post.find({ category });
 
     if (!posts || posts.length === 0) {
       return res.status(404).send({
-        message: "No se encontraron posts para la categoría especificada.",
+        message: "No se han encontrado posts para esta categoría.",
       });
     }
 
-    res.status(200).send(posts);
+    res.status(200).send({
+      posts,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send({
@@ -130,13 +133,16 @@ const getPostsBySearch = async (req, res) => {
 
     if (!search) {
       return res.status(400).send({
-        message: "El término de búsqueda es obligatorio",
+        message: "El término de búsqueda es obligatorio.",
       });
     }
+
     const posts = await Post.find({
       $or: [
         { title: { $regex: search, $options: "i" } },
         { content: { $regex: search, $options: "i" } },
+        { path: { $regex: search, $options: "i" } },
+
       ],
     });
 
@@ -159,8 +165,6 @@ const getPostsBySearch = async (req, res) => {
   }
 };
 
-
-
 const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
@@ -172,11 +176,12 @@ const updatePost = async (req, res) => {
     }
 
     const updates = req.body;
+
     const post = await Post.findByIdAndUpdate(id, updates, { new: true });
 
     if (!post) {
       return res.status(404).send({
-        message: "No se ha encontrado ningún post",
+        message: "No se ha encontrado ningún post.",
       });
     }
 
@@ -186,25 +191,25 @@ const updatePost = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send({
-      message: "Error en el servidor al actualizar el post",
+      message: "Error en el servidor al actualizar el post.",
     });
   }
 };
 
 const deletePost = async (req, res) => {
   try {
-    const { id } = req.paramd;
+    const { id } = req.params;
 
     if (!id) {
       return res.status(400).send({
-        message: "El id del post es obligatorio",
+        message: "El id del post es obligatorio.",
       });
     }
     const deletedPost = await Post.findByIdAndDelete(id);
 
     if (!deletedPost) {
       return res.status(404).send({
-        message: "No se ha encontrado ningun post",
+        message: "No se ha encontrado ningún post.",
       });
     }
     res.status(200).send({
@@ -219,11 +224,11 @@ const deletePost = async (req, res) => {
 };
 
 module.exports = {
-    createPost,
-    getPosts,
-    getPost,
-    getPostsByCategory,
-    getPostsBySearch,
-    updatePost,
-    deletePost
-}
+  createPost,
+  getPosts,
+  getPost,
+  getPostsByCategory,
+  getPostsBySearch,
+  updatePost,
+  deletePost,
+};

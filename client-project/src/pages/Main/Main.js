@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './Main.scss';
 
 export const Main = () => {
   return (
     <div className='main-form'>
-    <h1>WELCOME BACK</h1>
-    <h2>Please, Login or SignUp</h2>
+      <h1>Welcome to My App</h1>
+      <p>Get started by signing up or logging in</p>
     </div>
-  )
-}
+  );
+};

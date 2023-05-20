@@ -1,12 +1,16 @@
-const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate");
+const mongoose = require("mongoose")
+const mongoosePaginate = require("mongoose-paginate")
 
 const CategorySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        require: true,
     },
     description: String,
-    potho: String,
-    created_at: { type: Date, default: Date.now}
+    photo: String,
+    created_at: { type:Date}
 })
+
+CategorySchema.plugin(mongoosePaginate)
+const Category = mongoose.model("Category", CategorySchema)
+module.exports = Category;
